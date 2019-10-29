@@ -93,7 +93,8 @@ if __name__ == '__main__':
 
     print(F"Norm params: {scaler.get_params()}")
     file_name_normparams = join(parameters_folder, F'{model_name}.txt')
-    utilsNN.save_norm_params(file_name_normparams, NormParams.min_max, scaler)
+    # utilsNN.save_norm_params(file_name_normparams, NormParams.min_max, scaler)
+    utilsNN.save_norm_params(file_name_normparams, 1, scaler)
 
     print("Getting callbacks ...")
 

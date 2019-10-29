@@ -216,7 +216,8 @@ def save_splits(file_name, folders_to_read, train_idx, val_idx, test_idx):
 def save_norm_params(file_name, norm_type, scaler):
     print("Saving normalization parameters....")
 
-    if norm_type == NormParams.min_max:
+    # if norm_type == NormParams.min_max:
+    if norm_type == 1:
         file = open(file_name, 'w')
         min_val = scaler.data_min_
         max_val = scaler.data_max_
