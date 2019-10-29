@@ -3,7 +3,6 @@ from datetime import datetime
 from config.MainConfig import get_training_1d
 
 from inout.io_common import create_folder
-from preproc.constants import NormParams
 
 import numpy as np
 import pandas as pd
