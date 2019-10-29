@@ -3,6 +3,7 @@ from datetime import datetime
 from config.MainConfig import get_training_1d
 
 from inout.io_common import create_folder
+from preproc.constants import NormParams
 
 import numpy as np
 import pandas as pd
@@ -92,8 +93,7 @@ if __name__ == '__main__':
 
     print(F"Norm params: {scaler.get_params()}")
     file_name_normparams = join(parameters_folder, F'{model_name}.txt')
-    # utilsNN.save_norm_params(file_name_normparams, NormParams.min_max, scaler)
-    utilsNN.save_norm_params(file_name_normparams, 1, scaler)
+    utilsNN.save_norm_params(file_name_normparams, NormParams.min_max, scaler)
 
     print("Getting callbacks ...")
 

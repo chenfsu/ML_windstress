@@ -2,7 +2,6 @@ from __future__ import division, print_function
 import numpy as np
 import tensorflow as tf
 from scipy.spatial.distance import *
-from preproc.contour_smoothing import getContourFromMask
 from tensorflow.keras import backend as K
 K.set_image_data_format('channels_last')
 
@@ -52,23 +51,6 @@ def numpy_dice_copy(y_true, y_pred):
     y_pred_f = np.minimum(y_pred.flatten(),1)
     intersection = y_true_f * y_pred_f
     return (2. * intersection.sum() + smooth) / (y_true_f.sum() + y_pred_f.sum() + smooth)
-
-def numpy_hausdorff(y_true_orig, y_pred_orig):
-    ''' Computes the maximum 2D Hausdorff distance from every slice'''
-    y_true = getContourFromMask(y_true_orig)
-    y_pred = getContourFromMask(y_pred_orig)
-    xshape = y_true.shape
-    temp_y_true = y_true.flatten()
-    temp_y_pred = y_pred.flatten()
-    xy_pos_y_true = np.unravel_index(np.where(temp_y_true > 0)[0], xshape)
-    xy_pos_y_pred = np.unravel_index(np.where(temp_y_pred > 0)[0], xshape)
-
-    try:
-        hausdorff = directed_hausdorff(xy_pos_y_true, xy_pos_y_pred)
-    except Exception as e:
-        print(F"---------------Failed Hausdorff error: {e} ----------------")
-
-    return hausdorff[0]
 
 ############################ 2D LESION ONLY #################################
 

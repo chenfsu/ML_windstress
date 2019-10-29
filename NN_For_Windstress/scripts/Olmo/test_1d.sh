@@ -1,7 +1,6 @@
 #!/bin/bash
 
 export PYTHONPATH="${PYTHONPATH}:/home/olmozavala/Dropbox/MyProjects/OZ_LIB/image_visualization"
-export PYTHONPATH="${PYTHONPATH}:/home/olmozavala/Dropbox/MyProjects/OZ_LIB/image_preprocessing"
 
 RUN_FOLDER='Test'
 SRC_PATH='/home/olmozavala/Dropbox/MyProjects/OZ_LIB/AI_Template'
